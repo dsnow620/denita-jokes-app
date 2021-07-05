@@ -1,0 +1,23 @@
+<header>
+<div class="overlay" *ngIf="jokes.length !== 0">
+    <h1>{{title}}</h1>
+</div>
+</header>
+<div>
+    <ul>
+        <li *ngFor="let joke of jokes">
+          <span><b>Setup:</b>&nbsp;{{joke.setup}}</span>&nbsp;
+          <span><b>Punchline:</b>&nbsp;{{joke.punchline}}</span>
+        </li>
+      </ul>
+
+      <div>
+        <label for="new-joke">Enter joke setup here: </label>
+        <input id="new-joke" #jokeSetup /><br/><br/>
+        <label for="new-joke" >Enter joke punchline here: </label>
+        <input id="new-joke" #jokePunchline />&nbsp;&nbsp;
+        <button class="addButton" (click)="add(jokeSetup.value, jokePunchline.value); jokeSetup.value = ''; jokePunchline.value='';">
+          Add Joke
+        </button>
+      </div>
+</div>
